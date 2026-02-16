@@ -1,0 +1,22 @@
+# ============================================================================
+# VYREX — RLBot v5 Bot Configuration
+# ============================================================================
+# This file tells RLBot how to launch and identify the VYREX bot.
+# Place this file and its accompanying src/ directory in the RLBot bot folder.
+
+[settings]
+agent_id = "vyrex/vyrex-2v2"
+name = "VYREX"
+loadout_file = "loadout.toml"
+run_command = "conda activate vyrex & python bot.py"
+run_command_linux = "conda activate vyrex && python3 bot.py"
+hivemind = false
+logo_file = ""
+
+[details]
+description = "VYREX — A devastating 2v2 Rocket League AI trained with PPO via RLGym v2 + RocketSim. Specializes in teamplay, rotation, and aggressive offense."
+fun_fact = "VYREX was trained on billions of simulated timesteps using parallel RocketSim environments, learning to coordinate with teammates without ever playing a real game."
+source_link = ""
+developer = "VYREX Project"
+language = "python"
+tags = ["1v1", "teamplay"]
