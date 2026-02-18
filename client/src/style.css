@@ -1,0 +1,530 @@
+/* ============================================================
+   VYREX — Design System & Global Styles
+   ============================================================
+   A comprehensive design token system supporting dark/light
+   themes with CSS custom properties. No external dependencies.
+   ============================================================ */
+
+/* --- Hard Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ============================================================
+   DESIGN TOKENS — Dark Mode (Default)
+   ============================================================ */
+:root {
+  /* --- Brand --- */
+  --cyan-300: #67e8f9;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+
+  --accent: var(--cyan-400);
+  --accent-hover: var(--cyan-300);
+  --accent-dim: var(--cyan-600);
+  --gradient-brand: linear-gradient(135deg, var(--cyan-400), var(--blue-500));
+  --gradient-brand-r: linear-gradient(135deg, var(--blue-500), var(--cyan-400));
+  --gradient-subtle: linear-gradient(135deg, rgba(34,211,238,0.08), rgba(59,130,246,0.08));
+
+  /* --- Surfaces --- */
+  --bg-base: #07070C;
+  --bg-raised: #0E0E16;
+  --bg-overlay: #16161F;
+  --bg-card: rgba(255, 255, 255, 0.022);
+  --bg-card-hover: rgba(255, 255, 255, 0.045);
+  --bg-card-active: rgba(255, 255, 255, 0.06);
+
+  /* --- Text --- */
+  --text-1: #EEEEF4;
+  --text-2: #9494B8;
+  --text-3: #5C5C78;
+
+  /* --- Borders --- */
+  --border-1: rgba(255, 255, 255, 0.055);
+  --border-2: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(34, 211, 238, 0.2);
+
+  /* --- Status Colors --- */
+  --green: #34d399;
+  --green-dim: rgba(52, 211, 153, 0.15);
+  --yellow: #fbbf24;
+  --yellow-dim: rgba(251, 191, 36, 0.15);
+  --red: #f87171;
+  --red-dim: rgba(248, 113, 113, 0.15);
+
+  /* --- Shadows & Glows --- */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.35);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+  --glow-sm: 0 0 20px rgba(34,211,238,0.08);
+  --glow-md: 0 0 40px rgba(34,211,238,0.12);
+  --glow-lg: 0 0 80px rgba(34,211,238,0.15);
+
+  /* --- Typography --- */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-lg: 1.0625rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: clamp(2.5rem, 5vw, 3.25rem);
+  --fs-6xl: clamp(3rem, 6vw, 4rem);
+  --fs-hero: clamp(3.5rem, 8vw, 6rem);
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.65;
+
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.12em;
+
+  /* --- Spacing --- */
+  --section-py: clamp(5rem, 12vw, 9rem);
+  --container-max: 1200px;
+  --container-px: clamp(1.25rem, 4vw, 2rem);
+
+  /* --- Radius --- */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --radius-full: 9999px;
+
+  /* --- Easing --- */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-normal: 300ms;
+  --dur-slow: 500ms;
+  --dur-slower: 800ms;
+
+  /* --- Z-Index --- */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-nav: 100;
+  --z-overlay: 200;
+  --z-tooltip: 300;
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   DESIGN TOKENS — Light Mode
+   ============================================================ */
+[data-theme="light"] {
+  --bg-base: #F8F9FC;
+  --bg-raised: #FFFFFF;
+  --bg-overlay: #EEEEF5;
+  --bg-card: rgba(0, 0, 0, 0.024);
+  --bg-card-hover: rgba(0, 0, 0, 0.048);
+  --bg-card-active: rgba(0, 0, 0, 0.065);
+
+  --text-1: #0F172A;
+  --text-2: #64748B;
+  --text-3: #94A3B8;
+
+  --border-1: rgba(0, 0, 0, 0.065);
+  --border-2: rgba(0, 0, 0, 0.12);
+  --border-accent: rgba(6, 182, 212, 0.2);
+
+  --accent: var(--cyan-600);
+  --accent-hover: var(--cyan-500);
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.07);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+  --glow-sm: 0 0 20px rgba(6,182,212,0.06);
+  --glow-md: 0 0 40px rgba(6,182,212,0.08);
+  --glow-lg: 0 0 80px rgba(6,182,212,0.1);
+
+  color-scheme: light;
+}
+
+/* ============================================================
+   BASE ELEMENTS
+   ============================================================ */
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--leading-normal);
+  color: var(--text-1);
+  background: var(--bg-base);
+  overflow-x: hidden;
+  transition:
+    background var(--dur-normal) var(--ease),
+    color var(--dur-normal) var(--ease);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease);
+}
+a:hover { color: var(--accent-hover); }
+
+img, video { max-width: 100%; display: block; }
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+  width: 100%;
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-py);
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITIES
+   ============================================================ */
+.heading-xl {
+  font-size: var(--fs-6xl);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.heading-lg {
+  font-size: var(--fs-5xl);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.heading-md {
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.heading-sm {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+.text-gradient {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   CARD SYSTEM — Glassmorphism
+   ============================================================ */
+.glass-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition:
+    background var(--dur-normal) var(--ease),
+    border-color var(--dur-normal) var(--ease),
+    box-shadow var(--dur-normal) var(--ease),
+    transform var(--dur-normal) var(--ease);
+}
+
+.glass-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-2);
+  box-shadow: var(--glow-sm);
+}
+
+.glass-card--accent {
+  border-color: var(--border-accent);
+}
+
+.glass-card--accent:hover {
+  border-color: var(--accent);
+  box-shadow: var(--glow-md);
+}
+
+/* ============================================================
+   BADGE SYSTEM
+   ============================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.25em 0.7em;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.badge--cyan {
+  background: rgba(34, 211, 238, 0.12);
+  color: var(--cyan-400);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+}
+
+.badge--green {
+  background: var(--green-dim);
+  color: var(--green);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.badge--yellow {
+  background: var(--yellow-dim);
+  color: var(--yellow);
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.badge--red {
+  background: var(--red-dim);
+  color: var(--red);
+  border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.badge--ghost {
+  background: var(--bg-card);
+  color: var(--text-2);
+  border: 1px solid var(--border-1);
+}
+
+/* ============================================================
+   BUTTON SYSTEM
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.65em 1.4em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: all var(--dur-fast) var(--ease);
+}
+
+.btn--primary {
+  background: var(--gradient-brand);
+  color: #000;
+  box-shadow: var(--glow-sm);
+}
+.btn--primary:hover {
+  box-shadow: var(--glow-md);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  background: var(--bg-card);
+  color: var(--text-2);
+  border: 1px solid var(--border-1);
+}
+.btn--ghost:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-1);
+  border-color: var(--border-2);
+}
+
+/* ============================================================
+   SCROLL ANIMATIONS
+   ============================================================ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur-slower) var(--ease),
+    transform var(--dur-slower) var(--ease);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity var(--dur-slower) var(--ease),
+    transform var(--dur-slower) var(--ease);
+}
+.scroll-reveal-left.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity var(--dur-slower) var(--ease),
+    transform var(--dur-slower) var(--ease);
+}
+.scroll-reveal-right.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity var(--dur-slower) var(--ease),
+    transform var(--dur-slower) var(--ease);
+}
+.scroll-reveal-scale.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Staggered children */
+.stagger-children > .scroll-reveal:nth-child(1)  { transition-delay: 0ms; }
+.stagger-children > .scroll-reveal:nth-child(2)  { transition-delay: 60ms; }
+.stagger-children > .scroll-reveal:nth-child(3)  { transition-delay: 120ms; }
+.stagger-children > .scroll-reveal:nth-child(4)  { transition-delay: 180ms; }
+.stagger-children > .scroll-reveal:nth-child(5)  { transition-delay: 240ms; }
+.stagger-children > .scroll-reveal:nth-child(6)  { transition-delay: 300ms; }
+.stagger-children > .scroll-reveal:nth-child(7)  { transition-delay: 360ms; }
+.stagger-children > .scroll-reveal:nth-child(8)  { transition-delay: 420ms; }
+
+/* ============================================================
+   SKELETON LOADING
+   ============================================================ */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-card-hover) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ============================================================
+   LIVE PULSE INDICATOR
+   ============================================================ */
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+  50%      { opacity: 0.7; box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+.pulse-dot--disconnected {
+  background: var(--red);
+  animation: none;
+}
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.8; }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes grid-drift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(60px, 60px); }
+}
+
+@keyframes counter-flash {
+  0%   { color: var(--accent); }
+  100% { color: var(--text-1); }
+}
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-2);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-3);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  :root {
+    --section-py: clamp(3rem, 8vw, 5rem);
+  }
+}
