@@ -1,0 +1,43 @@
+# ============================================================================
+# VYREX — TEST Match Configuration
+# ============================================================================
+# For deep-analysis testing. Runs VYREX with full diagnostics logging.
+# Switch opponents to test against different skill levels.
+
+[rlbot]
+launcher = "Steam"
+auto_start_agents = true
+wait_for_agents = true
+
+[match]
+game_mode = "Soccar"
+game_map_upk = "DFHStadium_P"
+skip_replays = true
+start_without_countdown = false
+existing_match_behavior = "Restart"
+enable_rendering = true
+enable_state_setting = true
+freeplay = false
+
+# --- Blue Team: 2x VYREX (with analysis) ---
+[[match.cars]]
+type = "RLBot"
+team = 0
+config_file = "./src/bot.toml"
+
+[[match.cars]]
+type = "RLBot"
+team = 0
+config_file = "./src/bot.toml"
+
+# --- Orange Team: 2x Psyonix Beginner (skill=0.0) ---
+# Change skill to test: 0.0=Rookie, 0.5=Pro, 1.0=All-Star
+[[match.cars]]
+type = "Psyonix"
+team = 1
+skill = 0.0
+
+[[match.cars]]
+type = "Psyonix"
+team = 1
+skill = 0.0

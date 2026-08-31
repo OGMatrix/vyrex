@@ -1,0 +1,16 @@
+[settings]
+agent_id = "vyrex/vyrex-test"
+name = "VYREX v4.2"
+loadout_file = "loadout.toml"
+run_command = "conda activate vyrex & python bot_test.py"
+run_command_linux = "conda activate vyrex && python3 bot_test.py"
+hivemind = false
+logo_file = "../branding/logo_transparent.png"
+
+[details]
+description = "VYREX — TEST BUILD with deep behavioral analysis and match logging."
+fun_fact = "This version tracks every decision, touch, and rotation to diagnose weaknesses."
+source_link = ""
+developer = "OGMatrix"
+language = "python"
+tags = ["2v2", "test", "analysis"]

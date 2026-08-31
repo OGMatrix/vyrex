@@ -210,3 +210,12 @@ data/checkpoints_permanent
 data/checkpoints-1771163708278249100
 data/diagnostics
 wandb
+bots/rlbot_test_deploy/data
+bots/rlbot_deploy/src/POLICY.pt
+bots/rlbot_deploy/src/PPO_POLICY copy.pt
+bots/rlbot_deploy/src/PPO_POLICY.pt
+data
+v4/shmem_flinks
+v4/model_versions
+v4/agent_controllers_checkpoints
+v3/rlbot_deploy/src/POLICY.pt
