@@ -35,7 +35,6 @@ from datetime import datetime, timedelta
 # ============================================================================
 # CONFIG — paste your webhook URL here if you don't want to use env var
 # ============================================================================
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1472965335186538547/GCJM0z_5wD0jKB20KLL96QbQIByscjSXAACG2sKNr2eak_rdCxrd-0BiPEunahuos2wP"
 
 
 def get_webhook_url(cli_url: str = None) -> str:
